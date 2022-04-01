@@ -35,12 +35,12 @@ type Xxxxx = ....;
 const x:Xxxxx = ...;
 ```
 
-Note: When you write mock, your editor will suggest and complete keys.
+Note: When you are writing a mock, your editor will suggest and complete keys.
 
 ### 3. Rendering array with loop
 
 
-Render array by loop using Array.map function.
+Render array by loop using `Array.map` function.
 
 
 ```tsx
@@ -48,6 +48,7 @@ Render array by loop using Array.map function.
 ```
 
 Note: Understand brackets in JSX.
+
 Note: This is a typical pattern for list.
 
 
@@ -60,6 +61,7 @@ const XxxxComponent: React.VFC<{...}> = props = {
 ```
 
 Note: How to define your function as aReact component.
+
 Note: You can know how Typescript compiler support you in JSX before you define component props.
 
 
@@ -114,6 +116,7 @@ const handleSubmit = React.useCallback(() => {
 ```
 
 Note: Also when you write an argument of `push`, your editor supports you.
+
 Note: It doesn't work. 
 
 ### 10. 完成

@@ -1,65 +1,19 @@
-// Wrapping as custom hooks
 import React from "react";
 
-type Todo = {
-  title: string;
-  completed: boolean
-};
-
-
-const TodoListItem: React.VFC<{todo: Todo}> = (props) => {
-  return (<li>
-    {props.todo.title}
-    {props.todo.completed}
-  </li>);
-}
-
-const useTextInput = (defaultValue: string): [
-  string,
-  Exclude<React.ComponentProps<"input">['onChange'], undefined>
-] => {
-  const [value, setValue] = React.useState<string>(defaultValue);
-  const handleChange = React.useCallback<Exclude<React.ComponentProps<"input">['onChange'], undefined>>((event) => {
-    setValue(event.target.value);
-  }, [setValue])
-
-  return [value, handleChange];
-}
-
-
 export const App: React.VFC = () => {
-  const [todoTitle, handleTodoTitleChange] = useTextInput("sample!!!");
-  const [todoList, setTodoList] = React.useState<Todo[]>([
-    {
-      title: "Sample1",
-      completed: false
-    },
-    {
-      title: "Sample2",
-      completed: false
-    }
-  ]);
-  const handleSubmitTodo = React.useCallback((event: React.SyntheticEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setTodoList([
-      ...todoList, 
-      {
-        title: todoTitle,
-        completed: false,
-      }
-    ])
-  }, [todoTitle, todoList]);
-
   return (
     <div>
-      <form onSubmit={handleSubmitTodo}>
-        <input type="text" name="title" value={todoTitle} onChange={handleTodoTitleChange} />
-        <button type="submit">Add todo</button>
+      <form>
+        <input type="text" name="title" />
+        <button>Add todo</button>
       </form>
       <ul>
-        {todoList.map((todo) => (
-          <TodoListItem key={todo.title} todo={todo}></TodoListItem>
-        ))}
+        <li>Todo1 2022-01-01 12:30 Completed</li>
+        <li>Todo1 2022-01-01 12:30</li>
+        <li>Todo1 2022-01-01 12:30</li>
+        <li>Todo1 2022-01-01 12:30</li>
+        <li>Todo1 2022-01-01 12:30</li>
+        <li>Todo1 2022-01-01 12:30</li>
       </ul>
     </div>
   );
